@@ -1,6 +1,6 @@
 {
   "name": "react-native-basic-dropdown",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Customizable dropdown picker component for React Native with smooth toggle and TypeScript support",
   "main": "index.jsx",
   "publishConfig": {
@@ -17,6 +17,10 @@
   ],
   "author": "Vaishnavi Maske",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vaish8529/react-native-basic-dropdown"
+  },
   "peerDependencies": {
     "react": "18.1.0",
     "react-native": "0.72.0",
