@@ -5,6 +5,7 @@ A customizable dropdown picker component for React Native, designed to be lightw
 - Placeholder & Title: Define a placeholder and title for clear UI guidance.
 - Smooth Dropdown Toggle: Built-in animations with a chevron icon to indicate dropdown state.
 - Scroll Support: List of options supports smooth scrolling, ideal for longer item lists
+- TypeScript Ready: Strong typing ensures easier integration and fewer runtime errors.
 
 ### Installation: 
 ```bash
