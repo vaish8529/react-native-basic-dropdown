@@ -1,8 +1,9 @@
-import React, { FC, useState, Ref } from 'react';
+import React, { forwardRef, useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Feather';
 import styles from './style';
+import DropdownItem from './DropdownItem';
 
 interface Item {
 	label: string;
@@ -15,50 +16,43 @@ interface CustomPickerProps {
 	onChangeItem: (item: Item) => void;
 }
 
-const CustomPicker: FC<CustomPickerProps> = (props, ref: Ref<View>) => {
-	const [showOption, setShowOption] = useState<boolean>(false);
+const CustomPicker = forwardRef<View, CustomPickerProps>(({ title, placeholder, items, onChangeItem }, ref) => {
+	const [showOption, setShowOption] = useState(false);
 
 	const onSelectedItem = (val: Item) => {
 		setShowOption(false);
-		props.onChangeItem(val);
+		onChangeItem(val);
 	};
 
 	return (
 		<View ref={ref}>
-			<Text style={[styles.title, styles.pdb4]}>
-				{props.title}
-			</Text>
+			<Text style={[styles.title, styles.pdb4]}>{title}</Text>
 			<TouchableOpacity
 				style={styles.fullWidth}
 				activeOpacity={0.8}
-				onPress={() => setShowOption(!showOption)}
+				onPress={() => setShowOption((prev) => !prev)}
+				accessible
+				accessibilityLabel={placeholder}
+				accessibilityRole="button"
 			>
-				<Text style={styles.title}>
-					{props.placeholder}
-				</Text>
-				{showOption ? (
-					<Icon name="chevron-up" size={20} color="#656565" />
-				) : (
-					<Icon name="chevron-down" size={20} color="#656565" />
-				)}
+				<Text style={styles.title}>{placeholder}</Text>
+				<Icon name={showOption ? 'chevron-up' : 'chevron-down'} size={20} color="#656565" />
 			</TouchableOpacity>
 			{showOption && (
 				<View style={styles.dropdownInnerBox}>
 					<ScrollView keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} nestedScrollEnabled>
-						{props.items.map((val: Item, i: number) => (
-							<TouchableOpacity
-								key={String(i)}
+						{items.map((val, i) => (
+							<DropdownItem
+								key={val.label + i}
+								label={val.label}
 								onPress={() => onSelectedItem(val)}
-								style={styles.dropdownInnerTextTouchable}
-							>
-								<Text style={styles.title}>{val.label}</Text>
-							</TouchableOpacity>
+							/>
 						))}
 					</ScrollView>
 				</View>
 			)}
 		</View>
 	);
-};
+});
 
 export default CustomPicker;
