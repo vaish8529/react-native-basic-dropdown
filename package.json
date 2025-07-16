@@ -1,6 +1,6 @@
 {
   "name": "react-native-basic-dropdown",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Customizable dropdown picker component for React Native with smooth toggle and TypeScript support",
   "main": "index.jsx",
   "publishConfig": {
