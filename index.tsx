@@ -7,6 +7,7 @@ import DropdownItem from './DropdownItem';
 
 interface Item {
 	label: string;
+	value: string;
 }
 
 interface CustomPickerProps {
