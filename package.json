@@ -1,13 +1,14 @@
 {
   "name": "react-native-basic-dropdown",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Customizable dropdown picker component for React Native with smooth toggle and TypeScript support",
-  "main": "index.jsx",
+  "main": "index.tsx",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "keywords": [
     "react-native-dropdown",
@@ -24,13 +25,12 @@
   "peerDependencies": {
     "react": "18.1.0",
     "react-native": "0.72.0",
-    "react-native-gesture-handler": "^1.6.1",
     "react-native-vector-icons": "^6.6.0"
   },
   "dependencies": {
-    "react": "^18.1.0",
-    "react-native": "^0.72.0",
-    "react-native-gesture-handler": "^1.6.1",
+    "react": "18.1.0",
+    "react-native": "0.72.0",
+    "react-native-gesture-handler": "^1.10.3",
     "react-native-vector-icons": "^6.6.0"
   },
   "devDependencies": {

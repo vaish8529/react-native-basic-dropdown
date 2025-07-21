@@ -1,4 +1,6 @@
-import { StyleSheet, PixelRatio } from 'react-native';
+import { StyleSheet, PixelRatio, Dimensions } from 'react-native';
+
+const { width } = Dimensions.get('window');
 
 const widthToDp = (number) => {
     let givenWidth = typeof number === 'number' ? number : parseFloat(number);
